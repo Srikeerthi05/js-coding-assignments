@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conditions</title>
+      
+    </head>
+    <body>
+        <p> Driving eligibility</p>
+        <script>
+           function evalCond(inp){
+                if(inp.age>18 && inp.hasLicense===true){
+                    return "Eligible to drive";
+                }
+                if(inp.temperature>30 || inp.humidity>70){
+                    return "Warning: High discomfort level";
+                }
+                if(inp.role==='admin' || inp.role==='editor' && inp.isActive==='true'){
+                    return 'Access granted';
+                }
+                if (!(inp.isVerified) && inp.accountAge<1){
+                    return "Account needs verification";
+                }
+
+           }
+           const inp1={
+            age:20,
+            hasLicense:true
+           };
+           console.log(evalCond(inp1));
+
+           const inp2={
+            temperature:35,
+            humidity:60
+           };
+           console.log(evalCond(inp2));
+
+           const inp3={ 
+            isVerified:false,
+            accountAge: 0.5
+           };
+           console.log(evalCond(inp3));
+        </script>
+    
+    </body>
+</html>
