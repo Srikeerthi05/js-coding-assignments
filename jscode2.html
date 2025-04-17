@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>JS Coding</title> 
+    <style>
+         
+    </style>
+
+</head>
+<body>
+     <p>JS Coding Assignment</p>
+    <script>
+         function findLongestPalindrome(str){
+            if(str.length<=1){
+                return str;
+            }
+            let maxlen=1;
+            let maxstr=str.substring(0,1);
+            for(let i=0;i<str.length;i++){
+                for(let j=i+1;j<=str.length;j++){
+                    if( isPalindrome(str.substring(i,j))){
+                        if(j-i>maxlen){
+                        maxlen=j-i;
+                        maxstr=str.substring(i,j);
+                        }
+                    }
+                }
+            }
+            return maxstr;
+
+         }
+         function isPalindrome(str1){
+            let left=0;
+            let right=str1.length-1;
+            while(left<right){
+                if(str1[left]!==str1[right]){
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+         }
+         console.log(findLongestPalindrome('racecar'));
+         console.log(findLongestPalindrome('madam'));
+        </script>
+</body>
+</html>
