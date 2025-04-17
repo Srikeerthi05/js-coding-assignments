@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+      
+    </head>
+    <body>
+        <script>
+           //Global Variables:variable declared outside the function or block and can be accessed anywhere in the script
+           let name= "sk"; 
+           function one() {
+                console.log(`Ola ${name}`);  
+           }
+            one();
+            console.log(name);  
+
+            //Local Variables:variable declared inside a function is local to that function and can't be accessed outside of function
+            
+            function two(){ 
+                let start='starting'; 
+                let end='end';
+            
+                console.log(`Event is ${start} and is gonna ${end} soon`);
+            }
+            two();
+            //console.log(start);:this gives an error as we can't access the local variable outside the function
+
+            //Block Scope:Variables declared with let or const inside {} (like inside an if/for loop) are only available within that block.
+            {
+                let place='Central Perk!';
+                console.log(`Place:${place}`);
+            }
+            console.log(place); // error-block variable is being accessed outside
+
+
+        </script>
+    
+    </body>
+</html>
