@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+     function processTransactions(trans){
+        let bal=0;
+        let totdep=0;
+        let totwd=0;
+        for(let tran of trans){
+            if(tran.type==='deposit'){
+                bal+=tran.amount;
+                totdep+=tran.amount;
+            }
+            else if(tran.type==='withdrawal'){
+                bal-=tran.amount;
+                totwd+=tran.amount;
+            }
+        }
+     
+     return {
+        finalbal:bal,
+        totdep:totdep,
+        totwd:totwd
+     }
+    }
+    const trans=[
+        {type:'deposit',amount: 900},
+        {type:'withdrawal',amount: 100},
+
+]
+const res=processTransactions(trans);
+console.log(res);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Libraryy</title>
+      
+    </head>
+    <body>
+        <script>
+            const b1={
+                title:'Shatter Me',
+                author:'Tahereh Mafi',
+                ISBN:'978-8974875673',
+                isBorrowed:false,
+
+                borrow(){
+                    this.isBorrowed=true; 
+                    return `The book borrowed:${this.title}`;
+
+                },
+                returnBook(){
+                    this.isBorrowed=false;
+                    return `The book returned:${this.title}`;
+                }
+            };
+
+            const b2 = {
+                title:'The Monk who sold his ferrari',
+                author:'Robin Sharma',
+                ISBN:'978-5463728938',
+                isBorrowed:false,
+
+                borrow(){
+                    this.isBorrowed=true;
+                },
+
+                returnBook(){
+                    this.isBorrowed=false;
+                }
+            };
+
+           
+
+            const library={
+                books:[b1,b2],
+
+                addBook(book){
+                    this.books.push(book);
+                },
+
+                findBookByISBN(isbn){
+                    for (let book of this.books){
+                        if (book.ISBN === isbn){
+                            return book;
+                        }
+                    }
+                    return null;
+                },
+
+                listAvailableBooks() {
+                    this.books.forEach(book => {
+                        if (!book.isBorrowed){
+                            console.log(book.title);
+                        }
+                    });
+                },
+
+
+                listBorrowedBooks(){
+                    this.books.forEach(book => {
+                        if (book.isBorrowed){
+                            console.log(book.title);
+                        }
+                    });
+            
+                }
+
+            };
+            
+            console.log("All available books:");
+            library.listAvailableBooks(); 
+
+            console.log("Borrowing 'Shatter me'...");
+            library.findBookByISBN('978-8974875673').borrow();
+
+            console.log("Available books:");
+            library.listAvailableBooks();
+
+            console.log("Borrowed books:");
+            library.listBorrowedBooks(); 
+
+        </script>
+    
+    </body>
+</html>
