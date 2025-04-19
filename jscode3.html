@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>JS Coding</title> 
+    <style>
+         .highlight{
+            background-color: aqua;
+            font-weight:bold;
+         }
+    </style>
+
+</head>
+<body>
+    
+     <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+     </ul>
+    <script>
+        let index=0;
+          const list=document.querySelectorAll('ul li');
+          list.forEach((item,index)=>{
+            console.log(`The item ${index+1} is ${item.textContent}`);
+
+          
+          if((index+1)%2===0){
+            item.classList.add('highlight');
+          }
+        });
+        console.log(`Total list items: ${list.length}`);
+                 
+        </script>
+</body>
+</html>
